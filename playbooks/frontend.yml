@@ -1,0 +1,49 @@
+---
+- name: Setup Frontend Application Server
+  hosts: "{{ host_server }}"
+  connection: ssh
+  become: true
+  gather_facts: false
+
+  roles:
+    # BOOTSTRAPING SYSTEM
+    - role: "robertdebock.bootstrap"
+      tags: ["bootstrap", "init"]
+    - role: "robertdebock.epel"
+      tags: ["bootstrap", "epel"]
+    - role: "robertdebock.update"
+      tags: ["bootstrap", "update"]
+    - role: "robertdebock.buildtools"
+      tags: ["bootstrap", "buildtools"]
+    - role: "robertdebock.core_dependencies"
+      tags: ["bootstrap", "core_dependencies"]
+    - role: "robertdebock.sysctl"
+      tags: ["bootstrap", "sysctl"]
+    - role: "robertdebock.cron"
+      tags: ["bootstrap", "cron"]
+    - role: "robertdebock.ntp"
+      tags: ["bootstrap", "ntp"]
+    - role: "robertdebock.swap"
+      tags: ["bootstrap", "swap"]
+    - role: "asapdotid.package"
+      tags: ["bootstrap", "package"]
+    - role: "asapdotid.git"
+      tags: ["bootstrap", "git"]
+    - role: "robertdebock.python_pip"
+      tags: ["bootstrap", "pip"]
+    - role: "robertdebock.users"
+      tags: ["bootstrap", "users"]
+    # MANAGEMENT SYSTEM & SERVICE
+    - role: "asapdotid.ssh"
+      tags: ["service", "ssh"]
+    - role: "asapdotid.zsh"
+      tags: ["service", "zsh"]
+    - role: "robertdebock.docker_ce"
+      tags: ["service", "docker"]
+    - role: "asapdotid.docker_compose"
+      tags: ["service", "docker-compose"]
+    # MAINTENANCE SYSTEM
+    - role: "robertdebock.maintenance"
+      tags: ["system", "maintenance"]
+    - role: "asapdotid.reboot"
+      tags: ["system", "reboot"]

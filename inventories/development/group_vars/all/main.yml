@@ -1,0 +1,51 @@
+---
+# > MAIN VARIABLES =>
+__email_to: asapdotid@gmail.com
+__ssh_port: 22
+__ssh_private_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/vps_rsa') }}"
+__ssh_public_key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/vps_rsa.pub') }}"
+__ssh_authorized_keys:
+  - key: "{{ lookup('file', lookup('env','HOME') + '/.ssh/vps_rsa.pub') }}"
+    state: present
+  - key: https://github.com/asapdotid.keys
+    state: present
+
+# |> MAIN SETUP =>
+## Role: robertdebock.bootstrap
+### The user to use to connect to machines.
+bootstrap_user: "root" # needed version 5.2.6
+
+## Role: robertdebock.sysctl
+### Use default variables
+
+## Role: robertdebock.buildtools
+### Use default variables
+
+## Role: robertdebock.epel
+### Use default variables (only Amazone and CentOS 7/8)
+
+## Role: robertdebock.core_dependencies
+### Use default variables
+
+## Role: robertdebock.update
+### Use custom variables
+### For APT (Debian/Ubuntu) only: remove unused dependency packages for all module states except `build-dep'
+update_autoremove: yes
+
+## Role: robertdebock.cron
+### Use default variables
+
+## Role: robertdebock.ntp
+### Use custom variables
+### For NTP setup timezone
+ntp_timezone: "Asia/Jakarta"
+
+## Role: robertdebock.maintenance
+### Use custom variables
+### custom file for maintenance
+maintenance_journalctl_vacuum: 7d
+
+## Role: asapdotid.reboot
+### Use custom variables
+reboot_always: yes
+reboot_message: "Ansible manage system initiated a reboot."

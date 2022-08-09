@@ -1,0 +1,106 @@
+---
+# |> BOOTSTRAPING SYSTEM
+## Role: robertdebock.swap
+### For configures swap space on Linux
+swap_files:
+  - path: /swapfile
+    size: 512
+
+## Role: asapdotid.package
+### Packages Install
+package_list:
+  - name: apt-transport-https
+  - name: ca-certificates
+  - name: software-properties-common
+  - name: htop
+  - name: wget
+  - name: curl
+  - name: openssl
+  - name: lynis
+  - name: nmap
+
+## Role: asapdotid.git
+### For custom version use variable
+git_install_from_source: true
+git_version: "2.37.1"
+git_install_from_source_force_update: true
+
+## Role: robertdebock.python_pip
+### Pip modules install
+python_pip_modules:
+  - name: "dnspython"
+    version: "2.1.0"
+  - name: "jmespath"
+    version: "0.10.0"
+  - name: "docker"
+    version: "5.0.3"
+  - name: "docker-compose"
+    version: "1.29.2"
+
+# |> MANAGEMENT SYSTEM
+## Role: robertdebock.users
+### Create users
+users_user_list:
+  - name: root
+    system: yes
+    cron_allow: yes
+    sudo_options: "ALL=(ALL) NOPASSWD: ALL"
+    manage_ssh_key: no
+    password: "{{ vault_root_pwd }}"
+    update_password: always
+  - name: vagrant
+    system: yes
+    cron_allow: yes
+    sudo_options: "ALL=(ALL) NOPASSWD: ALL"
+    manage_ssh_key: no
+    password: "{{ vault_vagrant_pwd }}"
+    update_password: on_create
+  - name: asap
+    comment: Asapdotid user account
+    groups: sudo,adm
+    system: yes
+    cron_allow: yes
+    sudo_options: "ALL=(ALL) NOPASSWD: ALL"
+    manage_ssh_key: no
+    password: "{{ vault_asap_pwd }}"
+    update_password: on_create
+
+## Role: asapdotid.ssh
+### Setup secure ssh
+ssh_port: "{{ __ssh_port }}"
+### Root
+ssh_user_root:
+  - manage_ssh_key: no
+    private_key: "{{ __ssh_private_key }}"
+    public_key: "{{ __ssh_public_key }}"
+    authorized_keys: "{{ __ssh_authorized_keys }}"
+### Users
+ssh_user_users:
+  - name: vagrant
+    manage_ssh_key: no
+    private_key: "{{ __ssh_private_key }}"
+    public_key: "{{ __ssh_public_key }}"
+    authorized_keys: "{{ __ssh_authorized_keys }}"
+  - name: asap
+    manage_ssh_key: no
+    private_key: "{{ __ssh_private_key }}"
+    public_key: "{{ __ssh_public_key }}"
+    authorized_keys: "{{ __ssh_authorized_keys }}"
+
+## Role: asapdotid.zsh
+### Setup ZSH
+zsh_users:
+  - name: vagrant
+    theme: fino
+  - name: asap
+    theme: fino
+
+## Role: robertdebock.docker_ce
+### Install docker
+docker_ce_privileged_users:
+  - vagrant
+  - asap
+
+## Role: asapdotid.docker_compose
+### Install docker-compose
+docker_compose_version: "latest"

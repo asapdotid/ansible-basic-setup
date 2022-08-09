@@ -1,0 +1,20 @@
+# General
+.vaultpass
+.retry
+secret
+*.secret
+.vagrant/
+dns.log
+ansible/collections/*
+!ansible/collections/.keepfile
+ansible/roles/*
+!ansible/roles/.keepfile
+ansible/facts/*
+!ansible/facts/.keepfile
+
+# Editor
+.vscode/
+.idea/
+
+# Log files (if you are creating logs in debug mode, uncomment this)
+# *.log

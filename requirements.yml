@@ -1,0 +1,94 @@
+---
+collections:
+  - name: community.general
+    version: 5.3.0
+    source: https://galaxy.ansible.com
+  - name: community.docker
+    version: 2.7.0
+    source: https://galaxy.ansible.com
+  - name: ansible.posix
+    version: 1.4.0
+    source: https://galaxy.ansible.com
+  - name: amazon.aws
+    version: 3.3.1
+    source: https://galaxy.ansible.com
+
+roles:
+  # BOOTSTRAPING SYSTEM
+  - name: robertdebock.bootstrap
+    src: git+https://github.com/robertdebock/ansible-role-bootstrap.git
+    scm: git
+    version: 5.2.6
+  - name: robertdebock.sysctl
+    version: 2.1.3
+  - name: robertdebock.buildtools
+    version: 3.1.10
+  - name: robertdebock.epel
+    version: 4.0.0
+  - name: robertdebock.core_dependencies
+    version: 2.1.10
+  - name: robertdebock.update
+    version: 3.1.4
+  - name: robertdebock.cron
+    version: 2.1.5
+  - name: robertdebock.ntp
+    version: 3.1.3
+  - name: robertdebock.swap
+    version: 2.1.2
+  - name: asapdotid.package
+    src: git+https://github.com/asapdotid/ansible-role-package.git
+    scm: git
+    version: 1.0.1
+  - name: asapdotid.git
+    src: git+https://github.com/asapdotid/ansible-role-git.git
+    scm: git
+    version: 1.0.2
+  - name: robertdebock.python_pip
+    version: 4.3.1
+  - name: robertdebock.users
+    version: 5.4.3
+  # MANAGEMENT SYSTEM & SERVICE
+  - name: asapdotid.ssh
+    src: git+https://github.com/asapdotid/ansible-role-ssh.git
+    scm: git
+    version: 2.1.4
+  - name: asapdotid.zsh
+    src: git+https://github.com/asapdotid/ansible-role-zsh.git
+    scm: git
+    version: 1.0.4
+  - name: robertdebock.docker_ce
+    version: 3.3.1
+  - name: asapdotid.docker_compose
+    src: git+https://github.com/asapdotid/ansible-role-docker_compose.git
+    scm: git
+    version: 1.1.1
+  - name: asapdotid.minio-docker
+    src: git+https://github.com/asapdotid/ansible-role-minio-docker.git
+    scm: git
+    version: 1.3.0
+  - name: riemers.gitlab-runner
+    src: git+https://github.com/riemers/ansible-gitlab-runner.git
+    scm: git
+    version: v1.6.44
+  - name: robertdebock.nginx
+    version: 3.1.3
+  - name: asapdotid.cloudflare_oca
+    src: git+https://github.com/asapdotid/ansible-role-cloudflare_oca.git
+    scm: git
+    version: 1.0.0
+  - name: robertdebock.logrotate
+    version: 2.5.0
+  # SECURITY SYSTEM
+  - name: asapdotid.security
+    src: git+https://github.com/asapdotid/ansible-role-security.git
+    scm: git
+    version: 1.0.2
+  - name: robertdebock.fail2ban
+    version: 4.2.3
+  # MAINTENANCE SYSTEM
+  - name: robertdebock.maintenance
+    version: 2.1.4
+  - name: asapdotid.reboot
+    src: git+https://github.com/asapdotid/ansible-role-reboot.git
+    scm: git
+    version: 1.0.1

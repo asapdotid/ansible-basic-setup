@@ -1,0 +1,8 @@
+---
+# mkpasswd -m sha-512 <password> -S xRbEgqe3wI
+# root:Root $6$xRbEgqe3wI$vrSY8TPWnFHb6praSfgJUZTDe8JqFbZ.RJm9tulAbBTgptQ93cRXPXcNeAOoei92zwF69N328pFaEuAnC0NxH/
+# vagrant:Vagrant $6$xRbEgqe3wI$P4McF0u9L7otdds2OTfgDhkkwApsj9nrTXI5qhBJii0HNKGnyBq0MpETlnJ.bj7Zo0v0vbuBem5NnX84JL5Pd1
+# asap:Asap $6$xRbEgqe3wI$R5wHRjc1lVcW33cgWc.EhFQVwemDtFGKBef8VZaTOXr4RrcYtc8kZxxbAGnNKZLJ2UJhJwB5qonWG2q/fGDix.
+vault_root_pwd: "$6$xRbEgqe3wI$vrSY8TPWnFHb6praSfgJUZTDe8JqFbZ.RJm9tulAbBTgptQ93cRXPXcNeAOoei92zwF69N328pFaEuAnC0NxH/"
+vault_vagrant_pwd: "$6$xRbEgqe3wI$P4McF0u9L7otdds2OTfgDhkkwApsj9nrTXI5qhBJii0HNKGnyBq0MpETlnJ.bj7Zo0v0vbuBem5NnX84JL5Pd1"
+vault_asap_pwd: "$6$xRbEgqe3wI$R5wHRjc1lVcW33cgWc.EhFQVwemDtFGKBef8VZaTOXr4RrcYtc8kZxxbAGnNKZLJ2UJhJwB5qonWG2q/fGDix."

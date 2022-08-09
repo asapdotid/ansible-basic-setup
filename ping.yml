@@ -1,0 +1,9 @@
+---
+- name: Ping all nodes.
+  hosts: "{{ server | default('all') }}"
+
+  tasks:
+    - name: Test some connections with ping module.
+      ping:
+    # - name: display ssk public key
+    #   ansible.builtin.debug: msg="{{ lookup('ansible.builtin.url', 'https://github.com/asapdotid.keys', wantlist=True) }}"

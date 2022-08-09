@@ -1,0 +1,4 @@
+---
+- ansible.builtin.import_playbook: ./playbooks/frontend.yml
+  vars:
+    host_server: "{{ server }}"
