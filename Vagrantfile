@@ -3,6 +3,7 @@
 
 VAGRANTFILE_API_VERSION = "2"
 VAGRANT_BOX_UBUNTU = "bento/ubuntu-22.04"
+VAGRANT_BOX_CENTOS = "bento/centos-7.9"
 VAGRANT_BOX_ROCKY = "bento/rockylinux-9"
 VAGRANT_BOX_AMAZON = "bento/amazonlinux-2"
 

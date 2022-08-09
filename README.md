@@ -11,7 +11,7 @@
 <p align="center">
 
 <a href="https://www.ansible.com">
-  <img src="https://img.shields.io/badge/Ansible-2.10-green?style=flat&logo=ansible" alt="Ansible">
+  <img src="https://img.shields.io/badge/Ansible-2.10-red?style=flat&logo=ansible" alt="Ansible">
 </a>
 <a href="LICENSE.md">
   <img src="https://img.shields.io/badge/License-MIT-blue.svg" alt="Licence">
@@ -19,8 +19,17 @@
 <a href="https://ubuntu.com/">
   <img src="https://img.shields.io/badge/ubuntu-20.x-orange?style=flat&logo=ubuntu" alt="Distribution">
 </a>
+<a href="https://ubuntu.com/">
+  <img src="https://img.shields.io/badge/ubuntu-22.x-orange?style=flat&logo=ubuntu" alt="Distribution">
+</a>
 <a href="https://www.centos.org/">
-  <img src="https://img.shields.io/badge/CentOS-8-green?style=flat&logo=centos" alt="Distribution">
+  <img src="https://img.shields.io/badge/CentOS-7-green?style=flat&logo=centos" alt="Distribution">
+</a>
+<a href="https://rockylinux.org/">
+  <img src="https://img.shields.io/badge/RockyLinux-9-blue?style=flat&logo=rockylinux" alt="Distribution">
+</a>
+<a href="https://aws.amazon.com/amazon-linux-2/">
+  <img src="https://img.shields.io/badge/AmazonLinux-2-orange?style=flat&logo=amazon" alt="Distribution">
 </a>
 
 > Minimal **Ansible** >= 2.10
